@@ -92,7 +92,7 @@ public class EmployeeDaoImp implements EmployeeDao {
 
     @Override
     public void deleteEmployee(int id) throws SQLException {
-        String query = "delete from employee where emp_id ='?'";
+        String query = "delete from employee where emp_id =?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, id);
         int count = preparedStatement.executeUpdate();

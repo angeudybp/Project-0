@@ -88,7 +88,7 @@ public class CustomerDaoImp implements CustomerDao {
 
     @Override
     public void deleteCustomer(int id) throws SQLException {
-        String query = "delete from customer where cust_id = '?'";
+        String query = "delete from customer where cust_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, id);
         int count = preparedStatement.executeUpdate();
@@ -124,7 +124,6 @@ public class CustomerDaoImp implements CustomerDao {
             if (c.getId() == id) {
                 return c;
             }
-
         }
         System.out.println("customer is not in the records.");
         return null;
