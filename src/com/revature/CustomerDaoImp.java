@@ -119,13 +119,26 @@ public class CustomerDaoImp implements CustomerDao {
 
     @Override
     public Customer getCustomerById(int id) throws SQLException {
-        for (Customer c : getCustomers()
-        ) {
-            if (c.getId() == id) {
-                return c;
-            }
+        String query = "select * from customer where cust_id=?";
+        Customer customer;
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            String last = resultSet.getString("last");
+            String email = resultSet.getString("email");
+            int custId = resultSet.getInt("cust_id");
+            double balance = resultSet.getDouble("balance");
+            customer = new Customer(name, last, email, custId, balance);
+            return customer;
         }
-        System.out.println("customer is not in the records.");
+        resultSet.close();
+        preparedStatement.close();
+        System.out.println("cannot find any records with those credentials!");
         return null;
+
+
+
     }
 }
