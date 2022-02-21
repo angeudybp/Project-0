@@ -48,6 +48,7 @@ public class EmployeeDaoImp implements EmployeeDao {
                 int count = preparedStatement.executeUpdate();
                 if (count > 0) {
                     System.out.println("records updated successfully");
+
                 } else {
                     System.out.println("something went wrong!");
                 }
@@ -64,6 +65,7 @@ public class EmployeeDaoImp implements EmployeeDao {
                 int count = preparedStatement.executeUpdate();
                 if (count > 0) {
                     System.out.println("records updated successfully");
+
                 } else {
                     System.out.println("something went wrong!");
                 }
@@ -78,6 +80,7 @@ public class EmployeeDaoImp implements EmployeeDao {
                 int count = preparedStatement.executeUpdate();
                 if (count > 0) {
                     System.out.println("records updated successfully");
+
                 } else {
                     System.out.println("something went wrong!");
                 }
@@ -98,6 +101,7 @@ public class EmployeeDaoImp implements EmployeeDao {
         int count = preparedStatement.executeUpdate();
         if (count > 0) {
             System.out.println("Employee deleted successfully");
+
         } else {
             System.out.println("Something went wrong!");
         }
@@ -117,6 +121,7 @@ public class EmployeeDaoImp implements EmployeeDao {
             String email = resultSet.getString("email");
             employees.add(new Employee(name, last, email, id));
         }
+
         return employees;
     }
 
@@ -129,6 +134,7 @@ public class EmployeeDaoImp implements EmployeeDao {
             }
 
         }
+
         return null;
     }
 }

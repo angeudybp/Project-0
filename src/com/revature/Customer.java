@@ -72,6 +72,7 @@ public class Customer {
             int count = preparedStatement.executeUpdate();
             if (count>0){
                 System.out.println("Withdrawal completed successfully!");
+
             }
         }
 
@@ -98,6 +99,7 @@ public class Customer {
             int count = preparedStatement.executeUpdate()+ preparedStatement1.executeUpdate();
             if (count>1){
                 System.out.println("Transfer successful!");
+
             }
 
         }

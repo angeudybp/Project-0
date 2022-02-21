@@ -17,12 +17,16 @@ public class UserDaoImp implements UserDao{
         preparedStatement.setString(1, user.getUsername());
         preparedStatement.setString(2, user.getPassword());
         preparedStatement.setBoolean(3, user.isLogged());
-
-        int count = preparedStatement.executeUpdate();
-        if (count > 0) {
-            System.out.println("User saved");
-        } else {
-            System.out.println("something went wrong!");
+        try {
+            int count = preparedStatement.executeUpdate();
+            if (count > 0) {
+                System.out.println("User saved");
+            } else {
+                System.out.println("something went wrong!");
+            }
+        }catch (SQLException e){
+            System.out.println("Error while inputting this user, this account might be a duplicate!");
+            System.exit(0);
         }
 
     }

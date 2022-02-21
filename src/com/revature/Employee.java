@@ -9,6 +9,12 @@ public class Employee {
     private String email;
     private int id;
 
+    public Employee(String name, String last, String email) {
+        this.name = name;
+        this.last = last;
+        this.email = email;
+
+    }
     public Employee(String name, String last, String email, int id) {
         this.name = name;
         this.last = last;

@@ -23,6 +23,7 @@ public class CustomerDaoImp implements CustomerDao {
         int count = preparedStatement.executeUpdate();
         if (count > 0) {
             System.out.println("Customer added successfully");
+
         } else {
             System.out.println("Something went wrong!");
         }
@@ -47,6 +48,7 @@ public class CustomerDaoImp implements CustomerDao {
                 int count = preparedStatement.executeUpdate();
                 if (count > 0) {
                     System.out.println("records updated successfully");
+
                 } else {
                     System.out.println("something went wrong!");
                 }
@@ -61,6 +63,7 @@ public class CustomerDaoImp implements CustomerDao {
                 int count = preparedStatement.executeUpdate();
                 if (count > 0) {
                     System.out.println("records updated successfully");
+
                 } else {
                     System.out.println("something went wrong!");
                 }
@@ -75,6 +78,7 @@ public class CustomerDaoImp implements CustomerDao {
                 int count = preparedStatement.executeUpdate();
                 if (count > 0) {
                     System.out.println("records updated successfully");
+
                 } else {
                     System.out.println("something went wrong!");
                 }
@@ -94,6 +98,7 @@ public class CustomerDaoImp implements CustomerDao {
         int count = preparedStatement.executeUpdate();
         if (count > 0) {
             System.out.println("Customer deleted successfully!");
+
         } else {
             System.out.println("Something went wrong!");
         }
@@ -114,6 +119,7 @@ public class CustomerDaoImp implements CustomerDao {
             double balance = resultSet.getDouble("balance");
             customers.add(new Customer(name, last, email, id, balance));
         }
+
         return customers;
     }
 
@@ -135,6 +141,7 @@ public class CustomerDaoImp implements CustomerDao {
         }
         resultSet.close();
         preparedStatement.close();
+
         System.out.println("cannot find any records with those credentials!");
         return null;
 

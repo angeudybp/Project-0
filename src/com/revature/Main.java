@@ -94,7 +94,8 @@ public class Main {
             System.out.println("""
                     1- Approve or reject accounts
                     2- view customer accounts
-                    3-exit""");
+                    3-create new Employee account
+                    4-exit""");
             choice = scanner.nextInt();
             while (choice != 4) {
                 switch (choice) {
@@ -184,6 +185,7 @@ public class Main {
         if (choice == 1) {
             System.out.println("please enter your customer id:");
             id = scanner.nextInt();
+            System.out.println("Thanks! "+customerDao.getCustomerById(id).getName()+" "+customerDao.getCustomerById(id).getLast());
             return customerDao.getCustomerById(id).getBalance();
 
         } else {
@@ -338,20 +340,18 @@ public class Main {
     }
     public static void createNewEmployee() throws SQLException {
         Scanner scanner = new Scanner(System.in);
-        CustomerDao customerDao = new CustomerDaoImp();
+        EmployeeDao employeeDao = new EmployeeDaoImp();
         String name, last, email;
-        double balance;
+
         System.out.println("What is your name?");
         name = scanner.next();
         System.out.println("What is your last name?");
         last = scanner.next();
         System.out.println("What is your email?");
         email = scanner.next();
-        System.out.println("What will be your initial deposit?");
-        balance = scanner.nextDouble();
 
-        Customer customer = new Customer(name, last, email, balance);
-        customerDao.addCustomer(customer);
+        Employee employee = new Employee(name, last, email);
+        employeeDao.addEmployee(employee);
     }
 
 
